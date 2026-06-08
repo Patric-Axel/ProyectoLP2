@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-6 col-sm-4">
+				<h1>Listado de Productos</h1>
+
+				<div class="col-6 col-sm-7">
+					<h3></h3>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>nombre</th>
+								<th>descripcion</th>
+								<th>precio</th>
+								<th>cantidad</th>
+								<th>estado</th>
+								<th>categoria</th>
+								<th>proveedor</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="p : ${lstProductos}">
+								<th scope="row" th:text="${p.id_producto}">1</th>
+								<td th:text="${p.nombre}"></td>
+								<td th:text="${p.descripcion}"></td>
+								<td th:text="${p.precio}"></td>
+								<td th:text="${p.cantidad}"></td>
+								<td th:text="${p.getObjEstadoProducto().getDescripcion()}"></td>
+								<td th:text="${p.getObjCategoria().getNom_categoria()}"></td>
+								<td th:text="${p.getObjProveedor().getNom_proveedor}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+</html>
