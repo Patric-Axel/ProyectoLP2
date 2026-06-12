@@ -12,7 +12,14 @@
 		<div class="row">
 			<div class="col-6 col-sm-4">
 				<h1>Listado de Productos</h1>
-
+				<!-- Enlace para invocar al método que genera el pdf -->
+				<a th:href="@{/reporteventas/pdf}" target="_blank">
+   					 Ver Reporte PDF Reporte de Ventas
+				</a>
+				<br>
+				<a th:href="@{/reporteproductos/pdf}" target="_blank">
+   					 Ver Reporte PDF Productos más vendidos
+				</a>	
 				<div class="col-6 col-sm-7">
 					<h3></h3>
 					<table class="table">
