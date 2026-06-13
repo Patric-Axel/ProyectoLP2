@@ -1,4 +1,4 @@
-package com.proyecto.servicio;
+package com.proyecto.service;
 
 import java.io.InputStream;
 import java.sql.Connection;

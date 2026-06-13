@@ -6,8 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.proyecto.servicio.ReporteProductoServicio;
-import com.proyecto.servicio.ReporteVentasServicio;
+import com.proyecto.service.ReporteProductoServicio;
+import com.proyecto.service.ReporteVentasServicio;
 
 @Controller
 public class ReporteProductoController {

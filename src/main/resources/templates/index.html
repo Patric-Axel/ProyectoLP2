@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header :: header}">
+<meta charset="UTF-8">
+<title>Productos</title>
+</head>
+<body>
+
+<nav th:replace="~{layout/navbar :: nav}"></nav>
+
+<div class="container mt-4">
+
+    <h2 class="text-center mb-4">🌱 Catálogo de Plantas</h2>
+
+    <div class="row">
+
+        <!-- 🌿 Producto 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="/img/planta1.png" class="card-img-top" alt="Planta">
+                <div class="card-body">
+                    <h5 class="card-title">Planta Aloe Vera</h5>
+                    <p class="card-text">Planta medicinal ideal para interiores.</p>
+                    <a href="#" class="btn btn-success w-100">Ver detalle</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🌿 Producto 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="/img/planta2.png" class="card-img-top" alt="Planta">
+                <div class="card-body">
+                    <h5 class="card-title">Cactus Mini</h5>
+                    <p class="card-text">Resistente y fácil de cuidar.</p>
+                    <a href="#" class="btn btn-success w-100">Ver detalle</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🌿 Producto 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="/img/planta3.png" class="card-img-top" alt="Planta">
+                <div class="card-body">
+                    <h5 class="card-title">Planta Suculenta</h5>
+                    <p class="card-text">Perfecta para decoración moderna.</p>
+                    <a href="#" class="btn btn-success w-100">Ver detalle</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🌿 Producto 4 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="/img/planta4.png" class="card-img-top" alt="Planta">
+                <div class="card-body">
+                    <h5 class="card-title">Helecho Verde</h5>
+                    <p class="card-text">Ideal para ambientes húmedos.</p>
+                    <a href="#" class="btn btn-success w-100">Ver detalle</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🌿 Producto 5 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="/img/planta5.png" class="card-img-top" alt="Planta">
+                <div class="card-body">
+                    <h5 class="card-title">Orquídea</h5>
+                    <p class="card-text">Elegante y decorativa.</p>
+                    <a href="#" class="btn btn-success w-100">Ver detalle</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🌿 Producto 6 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="/img/planta6.png" class="card-img-top" alt="Planta">
+                <div class="card-body">
+                    <h5 class="card-title">Planta Bonsái</h5>
+                    <p class="card-text">Arte natural en miniatura.</p>
+                    <a href="#" class="btn btn-success w-100">Ver detalle</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer th:replace="~{layout/footer :: footer}"></footer>
+
+</body>
+</html>

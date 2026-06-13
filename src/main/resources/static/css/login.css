@@ -1,0 +1,24 @@
+@charset "UTF-8";
+body{
+    background: linear-gradient(
+        135deg,
+        #d4f5d0,
+        #ffffff
+    );
+}
+
+.card{
+    border-radius:20px;
+}
+
+img{
+    object-fit:cover;
+}
+
+.form-control{
+    border-radius:10px;
+}
+
+.btn{
+    border-radius:10px;
+}
