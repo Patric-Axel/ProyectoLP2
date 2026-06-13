@@ -29,6 +29,7 @@ public class UsuarioController {
 		
 		if (u != null) {
 			session.setAttribute("usuario", u);
+			session.setAttribute("rol", u.getObjRol().getNombre());
 			return "redirect:/home";
 		}
 		model.addAttribute("error", "Credenciales incorrectas");

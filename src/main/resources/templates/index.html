@@ -7,7 +7,9 @@
 <body>
 
 <nav th:replace="~{layout/navbar :: nav}"></nav>
-
+<div th:if="${session.usuario != null}" >
+	<span th:text="${session.usuario.nombre}" ></span>
+</div>
 <div class="container mt-4">
 
     <h2 class="text-center mb-4">🌱 Catálogo de Plantas</h2>

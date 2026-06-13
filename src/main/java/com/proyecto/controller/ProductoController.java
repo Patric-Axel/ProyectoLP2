@@ -14,11 +14,11 @@ public class ProductoController {
 	@Autowired
 	private IProductoRepository productoRepository;
 
-	@GetMapping("/crud")
+	@GetMapping("/listar")
 	public String listarProductos(Model model) {
 		
 		model.addAttribute("lstProductos", productoRepository.findAll());
-		return "crudproductos";
+		return "producto/listar";
 	}
 	
 	

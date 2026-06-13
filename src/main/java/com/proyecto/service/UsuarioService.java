@@ -15,7 +15,7 @@ public class UsuarioService implements IUsuarioService{
 	@Override
 	public Usuario validarLogin(String nombre, String contrasena) {
 		// TODO Auto-generated method stub
-		return repo.findByNombreAndContrasena(nombre, contrasena);
+		return repo.findByCorreoAndContrasena(nombre, contrasena);
 	}
 	
 }
