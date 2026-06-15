@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Productos</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-4">
+    <h1>Productos disponibles</h1>
+
+    <a href="/carrito" class="btn btn-success mb-3">Ver carrito</a>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acción</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="p : ${lstProductos}">
+            <td th:text="${p.nombre}"></td>
+            <td th:text="${p.descripcion}"></td>
+            <td th:text="${p.precio}"></td>
+            <td th:text="${p.cantidad}"></td>
+            <td>
+                <a th:href="@{/carrito/agregar/{id}(id=${p.id_producto})}"
+                   class="btn btn-primary">
+                    Agregar
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/" class="btn btn-secondary">Volver</a>
+</div>
+
+</body>
+</html>
