@@ -8,4 +8,5 @@ import com.proyecto.model.Usuario;
 @Repository
 public interface IUsusarioRepository extends JpaRepository<Usuario, Integer>{
 	Usuario findByCorreoAndContrasena(String correo, String contrasena);
+	Usuario findByCorreo(String correo);
 }

@@ -1,5 +1,8 @@
 package com.proyecto.model;
 
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,11 +27,13 @@ public class Usuario {
 	private Integer id_usuario;
 	
 	private String nombre;
+	private String apellido;
 	private String correo;
 	private String contrasena;
 	private Integer id_rol;
 	private Integer	idestado;
-	private String fecha_registro;
+	@Column(name = "fecha_registro")
+    private LocalDateTime fechaRegistro;
 	
 	@ManyToOne //muchos a uno
 	@JoinColumn(insertable = false, updatable = false, name = "id_rol") // para decirle al objeto tipo que solo es de consulta no lo creara
