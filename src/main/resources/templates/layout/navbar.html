@@ -24,7 +24,8 @@
             <ul class="navbar-nav me-auto">
 
                 <!-- CLIENTES -->
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown"
+                 th:if="${session.usuarioLogueado != null and session.usuarioLogueado.id_rol == 1}">
                     <a class="nav-link dropdown-toggle"
                        href="#"
                        role="button"
@@ -39,7 +40,8 @@
                 </li>
 
                 <!-- PRODUCTOS -->
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown"
+                th:if="${session.usuarioLogueado != null and session.usuarioLogueado.id_rol == 1}">
                     <a class="nav-link dropdown-toggle"
                        href="#"
                        role="button"
@@ -54,7 +56,8 @@
                 </li>
 
                 <!-- PEDIDOS -->
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown"
+                th:if="${session.usuarioLogueado != null and session.usuarioLogueado.id_rol == 1}">
                     <a class="nav-link dropdown-toggle"
                        href="#"
                        role="button"
@@ -69,7 +72,8 @@
                 </li>
 
                 <!-- CARRITO -->
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown"
+                th:if="${session.usuarioLogueado != null and session.usuarioLogueado.id_rol == 2}">
                     <a class="nav-link dropdown-toggle"
                        href="#"
                        role="button"
@@ -84,7 +88,9 @@
                 </li>
 
                 <!-- REPORTES -->
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown"
+                th:if="${session.usuarioLogueado != null and session.usuarioLogueado.id_rol == 1}"
+                >
                     <a class="nav-link dropdown-toggle"
                        href="#"
                        role="button"
@@ -99,7 +105,8 @@
                 </li>
 
                 <!-- CONSULTAS -->
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown"
+                th:if="${session.usuarioLogueado != null and session.usuarioLogueado.id_rol == 1}">
                     <a class="nav-link dropdown-toggle"
                        href="#"
                        role="button"
@@ -117,20 +124,22 @@
 
             <ul class="navbar-nav">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        👤 Mi Perfil
-                    </a>
-                </li>
+                <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+    				<a class="nav-link"
+       					th:href="@{/usuario/perfil}">
+        				👤 Bienvenido,
+        				<span th:text="${session.usuarioLogueado.nombre}"></span>
+    				</a>
+				</li>
                 
-                <li class="nav-item">
+                <li class="nav-item" th:if="${session.usuarioLogueado == null}">
    					 <a class="nav-link" th:href="@{/login}">
       				  🔑 Iniciar Sesión
     				</a>
 				</li>
 
-                <li class="nav-item">
-                    <a class="nav-link text-warning" href="#">
+                <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+                    <a class="nav-link text-warning" th:href="@{/logout}">
                         🚪 Cerrar Sesión
                     </a>
                 </li>

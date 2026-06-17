@@ -4,13 +4,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/home")
 public class HomeController {
 	
+	
 	@GetMapping("/index")
-	public String home() {
-		return "index";
+	public String home(HttpSession session) {
+
+	    if(session.getAttribute("usuarioLogueado") == null) {
+	        return "redirect:/login";
+	    }
+
+	    return "index";
 	}
 	
 }
