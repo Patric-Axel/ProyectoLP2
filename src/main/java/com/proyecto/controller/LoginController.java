@@ -19,6 +19,8 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class LoginController {
 
+	//LOGIN Y REGISTRO EN UN MISMO HTML
+	//LOGIN
 	@Autowired
 	private IUsusarioRepository usuarioRepository;
 
@@ -49,6 +51,7 @@ public class LoginController {
 	                "mensajeError",
 	                "Correo o contraseña incorrectos");
 	        model.addAttribute("usuarioLogin", new Usuario());
+	        model.addAttribute("usuarioRegistro", new Usuario());
 
 	        return "auth/login";
 	    }
@@ -62,6 +65,7 @@ public class LoginController {
 	    return "redirect:/home/index";
 	}
 	
+	//REGISTRO ----------------------------------------------------
 	@PostMapping("/registro")
 	public String registrar(
 	        @ModelAttribute("usuarioRegistro") Usuario usuario,
@@ -88,6 +92,16 @@ public class LoginController {
 	    flash.addFlashAttribute(
 	            "mensaje",
 	            "Cuenta creada correctamente");
+
+	    return "redirect:/login";
+	}
+	
+	//CERRAR SESION --------------------------------------------------
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+
+	    session.invalidate();
 
 	    return "redirect:/login";
 	}

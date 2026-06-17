@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Verdant Sanctuary | Access</title>
+    <title>Santuario verde| Login</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&amp;family=Source+Serif+4:opsz,wght@8..60,400;500;600&amp;display=swap"
@@ -160,7 +160,7 @@
             alt="Minimalist plant scene"
             class="w-full h-full object-cover opacity-90 transition-transform duration-[10000ms] hover:scale-105"
             data-alt="A lush, high-resolution botanical photograph of a large Monstera Deliciosa plant positioned in a minimalist, sun-drenched architectural space. Soft, natural morning light streams through a tall window, casting gentle, organic shadows across an off-white plaster wall. The color palette is dominated by deep forest greens and warm creamy whites, maintaining a restorative and sophisticated sanctuary aesthetic. The composition is clean and expansive, emphasizing tactile softness and the vibrant textures of the plant leaves against the serene environment."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkzNTyrKZcHdpgJKRWXXHjMbTuaS5BFbHYSxbjbUtpfK0XuqxpyFeQNhAhIBpS_c0rwYirRIdk0ol3mNkvvEsKE0-vNfsdGgCPrCwaaJZypnXEdIj9LhxMSGIuNmkqScWytwHwig_ya7SnqFxWoTG5cf3M9nOg5G6rkVlla4hqD8s20iZ5dXTZI68jxOLxUMR1WHOmAgjKploH6y896sQz0X3JAJaR8gHXwTM7FefF7pCTAzgy9uZaxRU_o-e0gafXHMdpXpUKqYoJ"
+            src="/img/background.jpg"
           />
         </div>
         <!-- Brand Identity on Visual Side -->
@@ -169,15 +169,15 @@
         >
           <div>
             <h1 class="font-display-lg text-display-lg text-white">
-              Verdant Sanctuary
+              Santuario Verde
             </h1>
             <p class="font-body-lg text-white/80 mt-stack-sm max-w-sm">
-              Cultivating peace and growth in every urban corner.
+              Fomentando la paz a través de un cultura verde.
             </p>
           </div>
           <div class="flex items-center space-x-4 text-white/60">
             <span class="font-caption text-caption"
-              >Est. 2024 Botanical Co.</span
+              >Botánica 2026</span
             >
             <div class="h-px w-12 bg-white/30"></div>
           </div>
@@ -190,7 +190,7 @@
         <!-- Mobile Brand Visibility -->
         <div class="lg:hidden absolute top-margin-mobile left-margin-mobile">
           <h1 class="font-headline-md text-headline-md text-primary">
-            Verdant Sanctuary
+            Santuario Verde
           </h1>
         </div>
         <div class="max-w-md w-full py-stack-lg">
@@ -200,10 +200,10 @@
             <div class="space-y-stack-md" id="login-form">
               <header>
                 <h2 class="font-headline-lg text-headline-lg text-on-surface">
-                  Welcome back
+                  Bienvenido de nuevo
                 </h2>
                 <p class="font-body-md text-on-surface-variant mt-2">
-                  Enter your details to tend to your garden.
+                  Introduce tus datos para ingresar al jardín.
                 </p>
               </header>
 
@@ -212,18 +212,6 @@
 			
 			 <!-- FORMULARIO DE LOGIN-->
 			 
-			 	<div th:if="${mensajeError}"
-     				class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-
-    				<span th:text="${mensajeError}"></span>
-
-				</div>
-				
-				<div class="alert alert-success"
-     				th:if="${mensaje}"
-     				th:text="${mensaje}">
-				</div>
-				
               <form
                 class="space-y-gutter mt-stack-lg"
                 th:action="@{/login}"
@@ -252,11 +240,11 @@
                       for="password"
                       >Password</label
                     >
-                    <a
+                   <!-- <a
                       class="font-label-md text-label-md text-on-secondary-container hover:text-primary transition-colors"
                       href="#"
-                      >Forgot password?</a
-                    >
+                      >Forgot password?</a >--> 
+                    
                   </div>
                   <input
                     class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-0 focus:border-primary transition-all font-body-md outline-none"
@@ -283,7 +271,7 @@
                 <button
                   class="w-full bg-[#D67D5C] hover:bg-[#c06b4d] text-white font-label-md py-4 rounded-lg transition-all active:scale-[0.98] shadow-sm"
                 >
-                  Sign In to Sanctuary
+                  Ingresar al Santuario
                 </button>
 
               </form>
@@ -291,12 +279,12 @@
               
               <footer class="pt-stack-md text-center">
                 <p class="font-body-md text-on-surface-variant">
-                  New to the garden?
+                  Nuevo en el jardín
                   <button
                     class="text-on-secondary-container font-semibold hover:underline decoration-secondary-container underline-offset-4"
                     onclick="toggleForm('register')"
                   >
-                    Create an account
+                    Crear una cuenta
                   </button>
                 </p>
               </footer>
@@ -305,7 +293,7 @@
             <div class="hidden space-y-stack-md" id="register-form">
               <header>
                 <h2 class="font-headline-lg text-headline-lg text-on-surface">
-                  Sé parte de nuestra familia
+                  Se parte de nuestra familia
                 </h2>
                 <p class="font-body-md text-on-surface-variant mt-2">
                   Comienza una nueva experiencia botanica con nosotros.
@@ -315,10 +303,7 @@
               
               
               
-              <div class="alert alert-danger"
-     			th:if="${error}"
-     			th:text="${error}">
-				</div>
+             <!-- REGISTRO -->
               
               <form
                 class="space-y-stack-md mt-stack-lg"
@@ -335,6 +320,7 @@
                     <input
                       class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-0 focus:border-primary transition-all font-body-md outline-none"
                       type="text"
+                      placeholder="Ej: Juan"
                       th:field="*{nombre}"
                       required
                     />
@@ -347,6 +333,7 @@
                     <input
                       class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-0 focus:border-primary transition-all font-body-md outline-none"
                       type="text"
+                      placeholder="Ej: Perez"
                       th:field="*{apellido}"
                       required
                     />
@@ -360,6 +347,7 @@
                   <input
                     class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-0 focus:border-primary transition-all font-body-md outline-none"
                     type="email"
+                    placeholder="example@gmail.com"
                     th:field="*{correo}"
                     required
                   />
@@ -373,6 +361,7 @@
                     class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-0 focus:border-primary transition-all font-body-md outline-none"
                     type="password"
                     th:field="*{contrasena}"
+                    th:attr="minlength=8"
                     required
                   />
                   <p class="font-caption text-caption text-outline">
@@ -416,35 +405,6 @@
               </footer>
             </div>
           </div>
-          <!-- Subtle Help Footer -->
-          <div
-            class="mt-stack-lg pt-stack-md border-t border-outline-variant flex justify-between items-center opacity-60 hover:opacity-100 transition-opacity"
-          >
-            <div class="flex items-center space-x-4">
-              <a class="font-caption text-caption hover:text-primary" href="#"
-                >Support</a
-              >
-              <a class="font-caption text-caption hover:text-primary" href="#"
-                >Privacy</a
-              >
-            </div>
-            <div class="flex items-center space-x-1">
-              <span class="material-symbols-outlined text-[16px]"
-                >language</span
-              >
-              <span class="font-caption text-caption">English (US)</span>
-            </div>
-          </div>
-        </div>
-        <!-- Soft Tonal Background Ornament -->
-        <div
-          class="absolute bottom-0 right-0 p-8 pointer-events-none opacity-5"
-        >
-          <span
-            class="material-symbols-outlined text-[240px]"
-            style="font-variation-settings: &quot;FILL&quot; 1"
-            >eco</span
-          >
         </div>
       </section>
     </main>
@@ -480,5 +440,34 @@
         container.style.transform = "translateY(0)";
       };
     </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script th:if="${mensaje}">
+    Swal.fire({
+        icon: 'success',
+        title: 'Registro exitoso',
+        text: '[[${mensaje}]]',
+        confirmButtonText: 'Aceptar'
+    });
+	</script>
+	
+	<script th:if="${mensajeErrorRegistro}">
+    Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: '[[${mensajeErrorRegistro}]]',
+        confirmButtonText: 'Aceptar'
+    });
+	</script>
+	
+	<script th:if="${mensajeError}">
+    Swal.fire({
+        icon: 'error',
+        title: 'Credenciales incorrectas o inexistentes',
+        text: '[[${mensajeError}]]',
+        confirmButtonText: 'Intentar nuevamente'
+    });
+	</script>
   </body>
 </html>
