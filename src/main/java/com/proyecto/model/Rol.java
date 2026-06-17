@@ -17,5 +17,4 @@ public class Rol {
 	@Id
 	private Integer id_rol;
 	private String nombre;
-
 }

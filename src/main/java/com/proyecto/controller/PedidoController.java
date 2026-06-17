@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.proyecto.model.DetallePedido;
 import com.proyecto.model.Pedido;
 import com.proyecto.model.Producto;
-import com.proyecto.repositorio.IDetallePedidoRepository;
-import com.proyecto.repositorio.IPedidoRepository;
-import com.proyecto.repositorio.IProductoRepository;
+import com.proyecto.repository.IDetallePedidoRepository;
+import com.proyecto.repository.IPedidoRepository;
+import com.proyecto.repository.IProductoRepository;
 
 @Controller
 public class PedidoController {

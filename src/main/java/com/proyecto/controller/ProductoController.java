@@ -5,23 +5,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.proyecto.repositorio.IProductoRepository;
+
+import com.proyecto.repository.IProductoRepository;
 
 @Controller
 public class ProductoController {
 
+
     @Autowired
     private IProductoRepository productoRepository;
 
-    @GetMapping("/crud")
-    public String listarProductos(Model model) {
-        model.addAttribute("lstProductos", productoRepository.findAll());
-        return "crudproductos";
-    }
+ 
 
-    @GetMapping("/productos")
-    public String listarProductosCliente(Model model) {
-        model.addAttribute("lstProductos", productoRepository.findAll());
-        return "productos";
-    }
+	@GetMapping("/listar")
+	public String listarProductos(Model model) {
+		
+		model.addAttribute("lstProductos", productoRepository.findAll());
+		return "producto/listar";
+	}
+	
+	
 }
+
