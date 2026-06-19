@@ -1,0 +1,16 @@
+@charset "UTF-8";
+.img-producto {
+    width: 80%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    margin: 10px auto 0 auto;
+}
+
+.card {
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
