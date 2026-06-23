@@ -7,6 +7,8 @@ import com.proyecto.model.Producto;
 
 public interface IProductoService {
 	/* Método para el listado de productos*/
+	/* Método para listar solo 6 productos en el index*/
+	 List<Producto> listarTop6();
 	List<Producto> listarProductos();
 	/* Método para buscar por ID del producto y editarlo*/
 	Producto buscarPorId (Integer id);

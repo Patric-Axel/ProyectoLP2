@@ -8,7 +8,7 @@
 
 <body>
 
-	<nav th:replace="~{layout/navbar :: nav}"></nav>
+	<nav th:replace="~{layout/navbar :: navbar}"></nav>
 
 	<div th:if="${session.usuario != null}" class="text-end p-3">
 		Bienvenido: <strong th:text="${session.usuario.nombre}"></strong>
@@ -80,124 +80,72 @@
 		</div>
 
 		<!-- PRODUCTOS -->
-		<h2 class="text-center mb-4">🌱 Catálogo de Plantas</h2>
-		<div class="row">
+		<h2 class="text-center mb-4">🌱 Top 6 Plantas Recomendadas</h2>
 
-			<!-- PRODUCTO 1 -->
+<div class="row">
 
-			<div class="col-md-4 mb-4">
+    <!-- PRODUCTO 1 -->
+    <div class="col-md-4 mb-4"
+         th:each="p : ${productos}">
 
-				<div class="card shadow-sm h-100">
+        <div class="card shadow-sm h-100">
 
-					<img src="/img/planta1.png" class="img-producto" alt="Aloe Vera">
+            <!-- IMAGEN -->
+            <img th:src="@{/img/{img}(img=${p.imagen})}"
+                 class="img-producto">
 
-					<div class="card-body">
+            <div class="card-body">
 
-						<h5 class="card-title">🌿 Planta Aloe Vera</h5>
+                <!-- NOMBRE -->
+                <h5 class="card-title" th:text="${p.nombre}">
+                    Nombre
+                </h5>
 
-						<p class="card-text text-muted">Planta medicinal ideal para
-							interiores.</p>
+                <!-- DESCRIPCIÓN -->
+                <p class="card-text text-muted"
+                   th:text="${p.descripcion}">
+                </p>
 
-						<h4 class="text-success">S/ 35.90</h4>
+                <!-- STOCK -->
+                <p class="text-muted">
+                    Stock disponible:
+                    <strong th:text="${p.cantidad}"></strong>
+                </p>
 
-						<span class="badge bg-success"> Stock Disponible </span>
+                <!-- PRECIO -->
+                <h4 class="text-success"
+                    th:text="'S/ ' + ${p.precio}">
+                </h4>
 
-					</div>
+                <!-- BOTÓN CARRITO -->
+                <form th:action="@{/carrito/agregar}" method="post">
 
-					<div class="card-footer bg-white border-0">
+                    <input type="hidden"
+                           name="idProducto"
+                           th:value="${p.id_producto}" />
 
-						<div class="d-grid gap-2">
+                    <button type="submit"
+                            class="btn btn-success w-100">
+                        🛒 Agregar al carrito
+                    </button>
 
-							<a href="#" class="btn btn-success"> 🛒 Agregar al carrito </a> <a
-								href="#" class="btn btn-outline-primary"> 👁 Ver detalle </a>
+                </form>
 
-						</div>
+            </div>
+        </div>
+    </div>
 
-					</div>
+</div>
 
-				</div>
-
-			</div>
-
-			<!-- PRODUCTO 2 -->
-
-			<div class="col-md-4 mb-4">
-
-				<div class="card shadow-sm h-100">
-
-					<img src="/img/planta2.png" class="img-producto" alt="Cactus">
-
-					<div class="card-body">
-
-						<h5 class="card-title">🌵 Cactus Mini</h5>
-
-						<p class="card-text text-muted">Resistente y fácil de cuidar.
-						</p>
-
-						<h4 class="text-success">S/ 24.90</h4>
-
-						<span class="badge bg-success"> Stock Disponible </span>
-
-					</div>
-
-					<div class="card-footer bg-white border-0">
-
-						<div class="d-grid gap-2">
-
-							<a href="#" class="btn btn-success"> 🛒 Agregar al carrito </a> <a
-								href="#" class="btn btn-outline-primary"> 👁 Ver detalle </a>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- PRODUCTO 3 -->
-
-			<div class="col-md-4 mb-4">
-
-				<div class="card shadow-sm h-100">
-					<img src="/img/planta3.png" class="img-producto" alt="Suculenta">
-
-					<div class="card-body">
-
-						<h5 class="card-title">🌱 Planta Suculenta</h5>
-
-						<p class="card-text text-muted">Perfecta para decoración
-							moderna.</p>
-
-						<h4 class="text-success">S/ 29.90</h4>
-
-						<span class="badge bg-success"> Stock Disponible </span>
-
-					</div>
-
-					<div class="card-footer bg-white border-0">
-
-						<div class="d-grid gap-2">
-
-							<a href="#" class="btn btn-success"> 🛒 Agregar al carrito </a> <a
-								href="#" class="btn btn-outline-primary"> 👁 Ver detalle </a>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
+<div class="text-center mt-4">
+    <a th:href="@{/producto/listar-todos}" class="btn btn-primary btn-lg">
+        📦 Ver todos los productos
+    </a>
+</div>
 
 	</div>
 
 	<footer th:replace="~{layout/footer :: footer}"></footer>
-
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: header}">
+<meta charset="UTF-8">
+<title>Catálogo de Productos</title>
+</head>
+
+<body>
+
+<nav th:replace="~{layout/navbar :: nav}"></nav>
+
+<div class="container mt-4">
+
+    <h2 class="text-center mb-4">📦 Catálogo de Productos</h2>
+
+    <!-- FILTROS -->
+    <form method="get" th:action="@{/producto/listar-todos}" class="row mb-4">
+
+        <!-- BUSCAR POR NOMBRE -->
+        <div class="col-md-6">
+            <input type="text"
+                   name="nombre"
+                   class="form-control"
+                   placeholder="🔎 Buscar por nombre...">
+        </div>
+
+        <!-- FILTRO POR CATEGORÍA -->
+        <div class="col-md-4">
+            <select name="categoria" class="form-control">
+                <option value="">Todas las categorías</option>
+                <option value="1">Suculentas</option>
+                <option value="2">Cactus</option>
+                <option value="3">Colgantes</option>
+                <option value="4">Bonsai</option>
+                <option value="5">Interior</option>
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <button class="btn btn-success w-100">
+                Filtrar
+            </button>
+        </div>
+
+    </form>
+
+    <!-- LISTA DE PRODUCTOS -->
+    <div class="row">
+
+        <div class="col-md-3 mb-4" th:each="p : ${productos}">
+            <div class="card h-100 shadow-sm">
+
+                <img th:src="@{/img/{img}(img=${p.imagen})}"
+                     class="img-producto">
+
+                <div class="card-body">
+                    <h5 th:text="${p.nombre}"></h5>
+                    <p class="text-muted" th:text="${p.descripcion}"></p>
+                    <h4 class="text-success"
+                        th:text="'S/ ' + ${p.precio}"></h4>
+                </div>
+
+                <div class="card-footer bg-white border-0">
+                    <button class="btn btn-success w-100">
+                        🛒 Agregar
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer th:replace="~{layout/footer :: footer}"></footer>
+
+</body>
+</html>
