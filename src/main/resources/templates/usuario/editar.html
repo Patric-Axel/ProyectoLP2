@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/header :: header}">
+    <title>Editar Usuario</title>
+</head>
+
+<body>
+
+
+<nav th:replace="~{layout/navbar :: navbar}"></nav>
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="card shadow-lg border-0">
+
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">✏️ Editar Usuario</h3>
+                </div>
+
+                <div class="card-body">
+
+                    <form th:action="@{/usuario/actualizar}"
+                          method="post"
+                          th:object="${usuario}">
+
+                        <!-- Campos ocultos -->
+                        <input type="hidden" th:field="*{id_usuario}">
+                        <input type="hidden" th:field="*{id_rol}">
+                        <input type="hidden" th:field="*{fechaRegistro}">
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">
+                                    Nombre
+                                </label>
+
+                                <input type="text"
+                                       class="form-control"
+                                       th:field="*{nombre}">
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">
+                                    Apellido
+                                </label>
+
+                                <input type="text"
+                                       class="form-control"
+                                       th:field="*{apellido}">
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Correo
+                            </label>
+
+                            <input type="email"
+                                   class="form-control"
+                                   th:field="*{correo}">
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Contraseña
+                            </label>
+
+                            <input type="text"
+                                   class="form-control"
+                                   th:field="*{contrasena}">
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Rol
+                            </label>
+
+                            <input type="text"
+                                   class="form-control"
+                                   th:value="${usuario.objRol.nombre}"
+                                   readonly>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Estado
+                            </label>
+
+                            <select class="form-select"
+                                    th:field="*{idestado}">
+
+                                <option th:each="e : ${lstEstados}"
+                                        th:value="${e.idestado}"
+                                        th:text="${e.descripcion}">
+                                </option>
+
+                            </select>
+
+                        </div>
+                        <div class="d-flex justify-content-between">
+
+                            <a th:href="@{/usuario/listar}"
+                               class="btn btn-secondary">
+                                ⬅ Volver
+                            </a>
+
+                            <button type="submit"
+                                    class="btn btn-success">
+                                💾 Guardar Cambios
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer th:replace="~{layout/footer :: footer}"></footer>
+
+</body>
+
+</html>

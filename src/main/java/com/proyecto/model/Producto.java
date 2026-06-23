@@ -28,6 +28,7 @@ public class Producto {
 	private Integer idestado;
 	private Integer id_categoria;
 	private Integer id_proveedor;
+	private String imagen;
 	
 	//generamos los joins
 	@ManyToOne //muchos a uno

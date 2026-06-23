@@ -7,7 +7,7 @@
 <body>
 
 	<nav th:replace="~{layout/navbar :: navbar}"></nav>
-
+	
 	<div class="container mt-4">
 
 		<!-- Título -->
@@ -36,7 +36,7 @@
 				Productos</div>
 
 			<div class="card-body">
-				<a th:href="@{/producto/nuevo}" class="btn btn-success mb-3"> ➕
+				<a th:href="@{/producto/registrar}" class="btn btn-success mb-3"> ➕
 					Nuevo Producto </a>
 				<div class="table-responsive">
 
@@ -50,7 +50,7 @@
 								<th>Descripción</th>
 								<th>Precio</th>
 								<th>Stock</th>
-								<th>Estado</th>
+<!-- 								<th>Estado</th> -->
 								<th>Categoría</th>
 								<th>Proveedor</th>
 								<th>Acciones</th>
@@ -73,18 +73,18 @@
 
 								<td th:text="${p.cantidad}"></td>
 
-								<td><span class="badge bg-success"
-									th:if="${p.objEstadoProducto.descripcion == 'Activo'}">
-										Activo </span> <span class="badge bg-secondary"
-									th:unless="${p.objEstadoProducto.descripcion == 'Activo'}">
-										Inactivo </span></td>
+<!-- 								<td><span class="badge bg-success" -->
+<!-- 									th:if="${p.objEstadoProducto.descripcion == 'Activo'}"> -->
+<!-- 										Activo </span> <span class="badge bg-secondary" -->
+<!-- 									th:unless="${p.objEstadoProducto.descripcion == 'Activo'}"> -->
+<!-- 										Inactivo </span></td> -->
 
 								<td th:text="${p.objCategoria.nom_categoria}"></td>
 
 								<td th:text="${p.objProveedor.nom_proveedor}"></td>
 
 								<td><a
-									th:href="@{/producto/editar/{id}(id=${p.id_producto})}"
+									th:href="@{/producto/editar/}+${p.id_producto}"
 									class="btn btn-warning btn-sm"> ✏️ Editar </a></td>
 
 							</tr>
@@ -102,6 +102,18 @@
 	</div>
 
 	<footer th:replace="~{layout/footer :: footer}"></footer>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script th:if="${mensaje}">
+Swal.fire({
+    toast: true,
+    position: 'top-end',
+    icon: '[[${tipo}]]',
+    title: '[[${mensaje}]]',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true
+});
+</script>
 </body>
 </html>

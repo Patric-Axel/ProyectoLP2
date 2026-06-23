@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.proyecto.model.Usuario;
-import com.proyecto.repository.IUsusarioRepository;
+import com.proyecto.repository.IUsuarioRepository;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -22,7 +22,7 @@ public class LoginController {
 	//LOGIN Y REGISTRO EN UN MISMO HTML
 	//LOGIN
 	@Autowired
-	private IUsusarioRepository usuarioRepository;
+	private IUsuarioRepository usuarioRepository;
 
 	@GetMapping("/login")
 	public String login(Model model) {

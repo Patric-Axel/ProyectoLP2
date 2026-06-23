@@ -1,98 +1,151 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="~{layout/header :: header}">
 <meta charset="UTF-8">
 <title>Productos</title>
 </head>
+
 <body>
 
-<nav th:replace="~{layout/navbar :: nav}"></nav>
-<div th:if="${session.usuario != null}" >
-	<span th:text="${session.usuario.nombre}" ></span>
-</div>
-<div class="container mt-4">
+	<nav th:replace="~{layout/navbar :: navbar}"></nav>
 
-    <h2 class="text-center mb-4">🌱 Catálogo de Plantas</h2>
+	<div th:if="${session.usuario != null}" class="text-end p-3">
+		Bienvenido: <strong th:text="${session.usuario.nombre}"></strong>
+	</div>
 
-    <div class="row">
+	<div class="container mt-4">
 
-        <!-- 🌿 Producto 1 -->
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="/img/planta1.png" class="card-img-top" alt="Planta">
-                <div class="card-body">
-                    <h5 class="card-title">Planta Aloe Vera</h5>
-                    <p class="card-text">Planta medicinal ideal para interiores.</p>
-                    <a href="#" class="btn btn-success w-100">Ver detalle</a>
-                </div>
+		<h2 class="text-center mb-4">🌱 BIENVENIDO</h2>
+
+		<!-- CARRUSEL -->
+
+		<div id="carouselPlantas" class="carousel slide mb-5"
+			data-bs-ride="carousel">
+
+			<div class="carousel-indicators">
+
+				<button type="button" data-bs-target="#carouselPlantas"
+					data-bs-slide-to="0" class="active"></button>
+
+				<button type="button" data-bs-target="#carouselPlantas"
+					data-bs-slide-to="1"></button>
+
+				<button type="button" data-bs-target="#carouselPlantas"
+					data-bs-slide-to="2"></button>
+
+				<button type="button" data-bs-target="#carouselPlantas"
+					data-bs-slide-to="3"></button>
+
+			</div>
+
+			<div class="carousel-inner">
+
+				<div class="carousel-item active">
+					<img src="/img/banner1.png" class="d-block w-100" height="400"
+						alt="Banner 1">
+				</div>
+
+				<div class="carousel-item">
+					<img src="/img/banner2.png" class="d-block w-100" height="400"
+						alt="Banner 2">
+				</div>
+
+				<div class="carousel-item">
+					<img src="/img/banner3.png" class="d-block w-100" height="400"
+						alt="Banner 3">
+				</div>
+
+				<div class="carousel-item">
+					<img src="/img/banner4.png" class="d-block w-100" height="400"
+						alt="Banner 4">
+				</div>
+
+			</div>
+
+			<button class="carousel-control-prev" type="button"
+				data-bs-target="#carouselPlantas" data-bs-slide="prev">
+
+				<span class="carousel-control-prev-icon"></span>
+
+			</button>
+
+			<button class="carousel-control-next" type="button"
+				data-bs-target="#carouselPlantas" data-bs-slide="next">
+
+				<span class="carousel-control-next-icon"></span>
+
+			</button>
+
+		</div>
+
+		<!-- PRODUCTOS -->
+		<h2 class="text-center mb-4">🌱 Top 6 Plantas Recomendadas</h2>
+
+<div class="row">
+
+    <!-- PRODUCTO 1 -->
+    <div class="col-md-4 mb-4"
+         th:each="p : ${productos}">
+
+        <div class="card shadow-sm h-100">
+
+            <!-- IMAGEN -->
+            <img th:src="@{/img/{img}(img=${p.imagen})}"
+                 class="img-producto">
+
+            <div class="card-body">
+
+                <!-- NOMBRE -->
+                <h5 class="card-title" th:text="${p.nombre}">
+                    Nombre
+                </h5>
+
+                <!-- DESCRIPCIÓN -->
+                <p class="card-text text-muted"
+                   th:text="${p.descripcion}">
+                </p>
+
+                <!-- STOCK -->
+                <p class="text-muted">
+                    Stock disponible:
+                    <strong th:text="${p.cantidad}"></strong>
+                </p>
+
+                <!-- PRECIO -->
+                <h4 class="text-success"
+                    th:text="'S/ ' + ${p.precio}">
+                </h4>
+
+                <!-- BOTÓN CARRITO -->
+                <form th:action="@{/carrito/agregar}" method="post">
+
+                    <input type="hidden"
+                           name="idProducto"
+                           th:value="${p.id_producto}" />
+
+                    <button type="submit"
+                            class="btn btn-success w-100">
+                        🛒 Agregar al carrito
+                    </button>
+
+                </form>
+
             </div>
         </div>
-
-        <!-- 🌿 Producto 2 -->
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="/img/planta2.png" class="card-img-top" alt="Planta">
-                <div class="card-body">
-                    <h5 class="card-title">Cactus Mini</h5>
-                    <p class="card-text">Resistente y fácil de cuidar.</p>
-                    <a href="#" class="btn btn-success w-100">Ver detalle</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- 🌿 Producto 3 -->
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="/img/planta3.png" class="card-img-top" alt="Planta">
-                <div class="card-body">
-                    <h5 class="card-title">Planta Suculenta</h5>
-                    <p class="card-text">Perfecta para decoración moderna.</p>
-                    <a href="#" class="btn btn-success w-100">Ver detalle</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- 🌿 Producto 4 -->
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="/img/planta4.png" class="card-img-top" alt="Planta">
-                <div class="card-body">
-                    <h5 class="card-title">Helecho Verde</h5>
-                    <p class="card-text">Ideal para ambientes húmedos.</p>
-                    <a href="#" class="btn btn-success w-100">Ver detalle</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- 🌿 Producto 5 -->
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="/img/planta5.png" class="card-img-top" alt="Planta">
-                <div class="card-body">
-                    <h5 class="card-title">Orquídea</h5>
-                    <p class="card-text">Elegante y decorativa.</p>
-                    <a href="#" class="btn btn-success w-100">Ver detalle</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- 🌿 Producto 6 -->
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="/img/planta6.png" class="card-img-top" alt="Planta">
-                <div class="card-body">
-                    <h5 class="card-title">Planta Bonsái</h5>
-                    <p class="card-text">Arte natural en miniatura.</p>
-                    <a href="#" class="btn btn-success w-100">Ver detalle</a>
-                </div>
-            </div>
-        </div>
-
     </div>
 
 </div>
 
-<footer th:replace="~{layout/footer :: footer}"></footer>
+<div class="text-center mt-4">
+    <a th:href="@{/producto/listar-todos}" class="btn btn-primary btn-lg">
+        📦 Ver todos los productos
+    </a>
+</div>
+
+	</div>
+
+	<footer th:replace="~{layout/footer :: footer}"></footer>
 
 </body>
 </html>
